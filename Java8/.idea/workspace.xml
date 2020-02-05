@@ -1,7 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d70003d6-1d11-4225-a9d8-a2a79a591d32" name="Default Changelist" comment="" />
+    <list default="true" id="d70003d6-1d11-4225-a9d8-a2a79a591d32" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/Idea.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/mybatis.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/src/main/java/com/fslq/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/src/main/java/com/fslq/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/src/main/resources/SqlMapConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/src/main/resources/com/fslq/dao/UserDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis/src/test/java/com/fslq/test/MybatisTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/src/main/java/com/fslq/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/src/main/java/com/fslq/domain/QueryVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/src/main/java/com/fslq/domain/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/src/main/java/com/fslq/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/src/main/resources/SqlMapConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/src/main/resources/com/fslq/map/UserDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/src/test/java/com/fslq/test/MainImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mybatis2/src/test/java/com/fslq/test/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test/src/DemoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Test/src/DemoTest2.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +65,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/com/fslqup/day06/IO/DemoIO.java" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -50,6 +85,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1WD52bFDO4Gzwaa4nSQRRUcddtY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -60,13 +96,13 @@
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/fslqup/day05/TryCatch/Excepion" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mybatis2" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript.Linters" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/com/fslqup/day03/List.java" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/src/com/fslqup/day05/TryCatch/Excepion" />
   </component>
@@ -221,6 +257,11 @@
       <workItem from="1580577219406" duration="3033000" />
       <workItem from="1580608895644" duration="5995000" />
       <workItem from="1580621786078" duration="11643000" />
+      <workItem from="1580667629764" duration="205000" />
+      <workItem from="1580802945839" duration="2401000" />
+      <workItem from="1580826199328" duration="629000" />
+      <workItem from="1580840032583" duration="267000" />
+      <workItem from="1580867995903" duration="595000" />
     </task>
     <servers />
   </component>
@@ -236,6 +277,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="777" y="238" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1580643401396" />
+    <state x="718" y="298" key="FileChooserDialogImpl" timestamp="1580840041415">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="718" y="298" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1580840041415" />
     <state width="1340" height="175" key="GridCell.Tab.0.bottom" timestamp="1580653448833">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -256,5 +301,13 @@
     </state>
     <state width="1340" height="175" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1580653448833" />
     <state width="1877" height="175" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1580645094348" />
+    <state x="440" y="199" key="SettingsEditor" timestamp="1580667742448">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="440" y="199" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1580667742448" />
+    <state x="313" y="167" key="new project wizard" timestamp="1580667832463">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="313" y="167" key="new project wizard/0.0.1920.1050@0.0.1920.1050" timestamp="1580667832463" />
   </component>
 </project>
