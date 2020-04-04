@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射Dao方法-->
+<mapper namespace="com.fslq.dao.UserDao">
+<!--    抽取重复的sql语句-->
+    <!--开启user执行二级缓存-->
+    <cache/>
+    <sql id="selectUser">
+        select * from user
+    </sql>
+    <!--查询所有-->
+    <select id="findAll" resultType="com.fslq.domain.User" useCache="true">
+        <include refid="selectUser"></include>
+    </select>
+    <!--根据id查询用户-->
+    <select id="findById" parameterType="java.lang.Integer" resultType="com.fslq.domain.User" useCache="true">
+        <include refid="selectUser"></include>
+         where id=#{uid};
+    </select>
+<!--定义User实体的resultMap，将Account实体包含到User实体中，
+实现一个用户对应多个账户 ==>userAccountMap
+-->
+    <resultMap id="userAccountMap" type="com.fslq.domain.User">
+        <id property="id" column="id"></id>
+        <result column="username" property="username"></result>
+        <result column="birthday" property="birthday"></result>
+        <result column="sex" property="sex"></result>
+        <result column="address" property="address"></result>
+        <!--配置user实体中account集合映射-->
+        <!--延迟加载-->
+        <collection property="accountList" ofType="com.fslq.domain.Account" select="com.fslq.dao.AccountDao.findById" column="id"></collection>
+    </resultMap>
+    <!--查询。。。-->
+    <select id="findUserAccountMap" resultMap="userAccountMap" useCache="true">
+        select * from user ;
+    </select>
+</mapper>

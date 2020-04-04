@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射Dao方法-->
+<mapper namespace="com.fslq.dao.AccountDao">
+    <!--    抽取重复的sql语句-->
+    <sql id="selectAccount">
+        select * from account
+    </sql>
+    <!--查询所有-->
+    <select id="findAll" resultType="com.fslq.domain.Account">
+        <include refid="selectAccount"></include>
+    </select>
+    <!--查询通过id-->
+    <select id="findById" resultType="com.fslq.domain.Account" parameterType="java.lang.Integer">
+        <include refid="selectAccount"></include>
+        where uid=#{uid}
+    </select>
+<!--查询账号的用户信息-->
+    <select id="findAccountUserAll" resultType="com.fslq.domain.AccountUser">
+        select a.id,u.username,u.sex,u.address from account a,user u where u.id=a.uid order by a.id desc;
+    </select>
+    <!--不使用AccountUser类封装信息
+        定义封装Account与User的resultMap
+         实体与实体是一一对应的关系   ==> accountUserMap
+    -->
+    <resultMap id="accountUserMap" type="com.fslq.domain.Account">
+            <id property="id" column="id"></id>
+            <result column="uid" property="uid"></result>
+            <result column="money" property="money"></result>
+            <!--配置uid与user对应关系-->
+        <!--实现延迟加载，即account表与user表不同时查询-->
+            <association property="user" column="uid" javaType="com.fslq.domain.User" select="com.fslq.dao.UserDao.findById"> </association>
+    </resultMap>
+    <select id="findAccountUserMap" resultMap="accountUserMap">
+        select * from account;
+    </select>
+
+</mapper>

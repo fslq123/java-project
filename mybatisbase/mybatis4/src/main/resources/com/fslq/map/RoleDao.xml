@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射Dao方法-->
+<mapper namespace="com.fslq.dao.RoleDao">
+    <!--定义Role实体与User的多对多的resultMap ==>roleAndUserMap
+    -->
+    <resultMap id="roleAndUserMap" type="com.fslq.domain.Role">
+        <id property="roleId" column="rid"></id>
+        <result column="roledesc" property="roleDesc"></result>
+        <result column="rolename" property="roleName"></result>
+        <collection property="userList" ofType="com.fslq.domain.User">
+            <id property="id" column="id"></id>
+            <id property="username" column="username"></id>
+            <id property="sex" column="sex"></id>
+            <id property="address" column="address"></id>
+            <id property="birthday" column="birthday"></id>
+        </collection>
+    </resultMap>
+    <!--查询。。。-->
+    <select id="findRoleAndUserMap" resultMap="roleAndUserMap">
+        select r.ID rid,r.ROLE_DESC roledesc,r.ROLE_NAME rolename,u.*
+        from user_role ur
+        left outer join role r on ur.RID = r.ID
+        left outer join user u on ur.UID=u.id;
+    </select>
+</mapper>

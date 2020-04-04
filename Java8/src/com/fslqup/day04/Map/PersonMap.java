@@ -17,6 +17,7 @@ public class PersonMap {
         LinkedList<Person> people=new LinkedList<> ();
         Collections.addAll (people,new Person ("张良",28),new Person ("黄忠",34),new Person ("诸葛亮",20),new Person ("诸葛亮",20));
         fun1(map,people);
+        System.out.println("字典："+map);
         fun2 (map1,people);
     }
 

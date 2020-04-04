@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--把对象的创建委托给spring-->
+<!--    <bean id="accountDao" class="com.fslq.dao.impl.AccountDaoImpl"></bean>-->
+    <!--spring对bean管理细节
+        1.创建bean对象的三种方式
+        2.bean对象的作用范围
+        3.bean对象的生命周期-->
+
+
+    <!--第一种方式：使用默认构造函数创建
+        在spring的配置文件中使用bean标签，配以id和class属性之后，且没有其他属性和标签时。
+        采用的就是默认构造函数创建bean对象，此时如果没有默认构造函数，则对象无法创建-->
+<!--    <bean id="accountService" class="com.fslq.service.impl.AccountServiceImpl"></bean>-->
+
+
+    <!--第二种方式：使用某个(工厂)类中的方法创建对象，并存入spring容器-->
+<!--    <bean id="instanceFactory" class="com.fslq.factory.Instancefactory"></bean>-->
+<!--    <bean id="accountService" factory-bean="instanceFactory" factory-method="getAccountService"></bean>-->
+
+
+    <!--第三种方式：使用某个类中的静态方法创建对象，并存入spring-->
+<!--    <bean id="accountService" class="com.fslq.factory.Staticfactory" factory-method="getAccountService"></bean>-->
+
+    <!--bean标签scope属性：
+        作用：用于指定bean的作用范围
+        取值：
+            1.singleton：单例（default）
+            2.prototype:多例
+            3.request:作用于web应用的请求范围
+            4.global-session:作用于集群环境的会话范围，若不是集群环境，就是当前session-->
+    <!--bean的生命周期
+        单例对象：
+            出生：当前容器创建时对象出生
+            活着：只要容器还在，对象一直活着
+        多例例对象：
+        出生：当前容器创建时对象出生
+        活着：对象使用过程一直活着
+        死亡：对象长时间不用，且没有别的对象引用时，由Java垃圾回收机制回收-->
+<!--    <bean id="accountService" class="com.fslq.service.impl.AccountServiceImpl"-->
+<!--          scope="singleton" init-method="init" destroy-method="destroy"></bean>-->
+
+
+
+    <!--spring中的依赖注入
+        依赖注入：
+            Dependency Injection
+                能注入的数据：有三类
+                    1.基本类型和spring
+                    2.其他bean类型（在配置文件中或注解过的bean）
+                    3.复杂类型/集合类型
+                注入的形式：
+                    1.使用构造函数提供
+                    2.使用set方法提供
+                    3.使用注解提供
+         IoC作用：
+            降低程序间的耦合（依赖关系）
+         依赖关系管理：
+            交给spring维护（即注入），当前类需要用到其他类对象，由spring提供，即在在配置文件中说明
+          -->
+    <!--第一种方式：使用构造函数提供
+         使用标签constructor-arg
+         标签的属性：
+            1.用于给构造函数中的参数赋值：
+                type:用于指定要注入的数据类型，该数据类型与构造函数中的参数类型保持一致
+                index：...构造函数中指定参数的索引位置赋值，从01开始。
+                name:用于指定给构造函数中指定名称的参数赋值
+            2.预赋值
+                value:常规类型
+                ref:bean对象
+             -->
+    <bean id="accountService" class="com.fslq.service.impl.AccountServiceImpl">
+        <constructor-arg name="name" value="张三"></constructor-arg>
+        <constructor-arg name="age" value="21"></constructor-arg>
+        <constructor-arg name="birthday" ref="currentTime"></constructor-arg>
+    </bean>
+    <!--配置一个时间bean类，用于当参数引用-->
+
+
+    <!--第二种方式：set方法注入(灵活）
+          标签：property
+          标签属性：
+              name:用于指定注入的set方法名称
+              value:常规类型
+              ref:bean对象
+              -->
+    <bean id="accountDao" class="com.fslq.dao.impl.AccountDaoImpl">
+        <property name="name" value="李四"></property>
+<!--        <property name="age" value="25"></property>-->
+        <property name="birthday" ref="currentTime"></property>
+
+
+        <!--注入集合-->
+        <property name="array">
+            <array>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>4</value>
+                <value>5</value>
+                <value>6</value>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="11" value="44"></entry>
+                <entry key="22" value="55"></entry>
+                <entry key="33" value="66"></entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="currentTime" class="java.util.Date"></bean>
+
+</beans>

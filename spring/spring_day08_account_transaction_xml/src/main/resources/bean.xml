@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--配置jdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/spring"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+    <!--配置accountDao-->
+    <bean id="accountDao" class="com.fslq.impl.AccountDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+    </bean>
+    <!--配置accountService-->
+    <bean id="accountService" class="com.fslq.impl.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao"></property>
+    </bean>
+<!--    使用事务管理器-->
+    <!--1.配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--2.配置事务通知-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <!--
+            isolation:用于指定事务的隔离级别
+            propagation:用于指定事务的传播行为
+            read-only:
+            timeout:-1表示永不超时
+            rollback-for:用于处理异常
+            no-rollback-for:
+         -->
+        <tx:attributes>
+            <tx:method name="transfer" propagation="REQUIRED" read-only="false"/>
+            <!--....-->
+            <tx:method name="find" propagation="SUPPORTS" read-only="true"></tx:method>
+        </tx:attributes>
+    </tx:advice>
+    <!--配置aop-->
+    <aop:config>
+        <!--配置切入点表达式-->
+        <aop:pointcut id="pc" expression="execution(* com.fslq.impl.*.*(..))"></aop:pointcut>
+        <!--建立切入点表达式与事务通知的对应关系-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pc"></aop:advisor>
+    </aop:config>
+</beans>

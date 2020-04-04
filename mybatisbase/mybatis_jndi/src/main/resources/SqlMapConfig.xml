@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--mybatis配置环境-->
+<configuration>
+<!-- 主配置文件   配置MySQL环境-->
+    <environments default="mysql">
+        <environment id="mysql">
+            <!--配置事务类型-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--配置数据源（连接池）-->
+            <dataSource type="JNDI">
+                <!--配置数据库的四个基本信息-->
+                <property name="data_source" value="java:comp/env/jdbc/mybatis"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!-- 独立配置文件   用于映射：指定每个dao的位置-->
+    <mappers>
+        <package name="com.fslq.dao"></package>
+    </mappers>
+</configuration>
